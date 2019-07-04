@@ -34,6 +34,16 @@ class UsersController < ApplicationController
         render json: { error: 'Invalid token.' }, status: 400
       end
     end
+
+  def signup
+      user = User.new(username: params[:username], password: params[:password])
+      if user.valid?
+         user.save
+        render json: user
+      else
+        render json: { error: 'Username already taken' }, status: 404
+      end
   end
-  
+
+
 end
