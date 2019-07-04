@@ -1,0 +1,2 @@
+class RemediesController < ApplicationController
+end

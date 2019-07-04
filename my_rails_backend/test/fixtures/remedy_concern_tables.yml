@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  remedy: one
+  concern: one
+
+two:
+  remedy: two
+  concern: two
