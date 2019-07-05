@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     post '/signin', to: 'users#signin'
     get '/validate', to: 'users#validate'
     get '/concerns', to: 'users#concerns'
-    post '/signup', to: 'users#signup'
+    post '/users', to: 'users#signup'
     get '/profile', to: 'users#show'
     get '/concerns', to: 'concerns#index'
   resources :remedy_concern_tables
