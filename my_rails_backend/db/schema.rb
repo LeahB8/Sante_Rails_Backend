@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2019_07_07_160841) do
 
   create_table "concerns", force: :cascade do |t|
     t.text "problem"
+    t.integer "problemID"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -27,27 +28,27 @@ ActiveRecord::Schema.define(version: 2019_07_07_160841) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "remedy_concern_tables", force: :cascade do |t|
+  create_table "remedy_concerns", force: :cascade do |t|
     t.bigint "remedy_id"
     t.bigint "concern_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["concern_id"], name: "index_remedy_concern_tables_on_concern_id"
-    t.index ["remedy_id"], name: "index_remedy_concern_tables_on_remedy_id"
+    t.index ["concern_id"], name: "index_remedy_concerns_on_concern_id"
+    t.index ["remedy_id"], name: "index_remedy_concerns_on_remedy_id"
   end
+<<<<<<< HEAD
 ç
   create_table "user_concern_tables", force: :cascade do |t|
+=======
+
+  create_table "user_concerns", force: :cascade do |t|
+>>>>>>> cfc1a6327840088b67c26dbd246a61d63ee20ce3
     t.bigint "user_id"
     t.bigint "concern_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["concern_id"], name: "index_user_concern_tables_on_concern_id"
-    t.index ["user_id"], name: "index_user_concern_tables_on_user_id"
-  end
-
-  create_table "user_conern_tables", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["concern_id"], name: "index_user_concerns_on_concern_id"
+    t.index ["user_id"], name: "index_user_concerns_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,8 +63,8 @@ ActiveRecord::Schema.define(version: 2019_07_07_160841) do
     t.text "goals", default: [], array: true
   end
 
-  add_foreign_key "remedy_concern_tables", "concerns"
-  add_foreign_key "remedy_concern_tables", "remedies"
-  add_foreign_key "user_concern_tables", "concerns"
-  add_foreign_key "user_concern_tables", "users"
+  add_foreign_key "remedy_concerns", "concerns"
+  add_foreign_key "remedy_concerns", "remedies"
+  add_foreign_key "user_concerns", "concerns"
+  add_foreign_key "user_concerns", "users"
 end

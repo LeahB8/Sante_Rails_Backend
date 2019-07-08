@@ -15,11 +15,12 @@ require "pry"
    response_string = RestClient.get('https://api.nutridigm.com/api/v1/nutridigm/healthconditions?subscriptionId=test')
    response_array = JSON.parse(response_string)
 #    binding.pry
-   response_array.each do |key| key["hcText"]
-   @concerns << key["hcText"]
-  end
-  @concerns.each do |concern|
-    concern = Concern.find_or_create_by(problem: concern)
+  #  response_array.each do |key| (key["hcText"], key["problemID"])
+  #  @concerns << {key["hcText"], key["problemID"]}
+  #  end
+
+  response_array.each do |concern|
+    concern = Concern.find_or_create_by(problem: concern["hcText"], problemID: concern["problemID"] )
   end
 
   
