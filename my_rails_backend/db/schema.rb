@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2019_07_07_160841) do
     t.index ["concern_id"], name: "index_remedy_concern_tables_on_concern_id"
     t.index ["remedy_id"], name: "index_remedy_concern_tables_on_remedy_id"
   end
-
+ç
   create_table "user_concern_tables", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "concern_id"
