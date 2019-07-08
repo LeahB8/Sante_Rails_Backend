@@ -2,12 +2,14 @@ Rails.application.routes.draw do
 
     post '/signin', to: 'users#signin'
     get '/validate', to: 'users#validate'
-    get '/usersConcerns', to: 'users#concerns'
+    get `/users/${user.id}/concerns`, to: 'users#concerns'
     post '/users', to: 'users#signup'
     get '/profile', to: 'users#show'
+    patch `/users/${user.id}`, to: 'users#update'
     get '/concerns', to: 'concerns#index'
-  resources :remedy_concern_tables
-  resources :user_concern_tables
+    post `/users/${user.id}/concerns`, to: 'userconcerns#create'
+  resources :remedy_concerns
+  resources :user_concerns
   resources :remedies
   resources :concerns
   resources :users
