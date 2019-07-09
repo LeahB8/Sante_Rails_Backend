@@ -20,7 +20,13 @@ require "pry"
   #  end
 
   response_array.each do |concern|
-    concern = Concern.find_or_create_by(problem: concern["hcText"], problemID: concern["problemID"] )
+    consumeStringArray = RestClient.get("https://api.nutridigm.com/api/v1/nutridigm/topitemstoconsume?subscriptionId=test&problemId=" + concern["problemID"].to_s)
+    puts consumeStringArray
+    consumeString = JSON.parse(consumeStringArray)
+    avoidStringArray = RestClient.get("https://api.nutridigm.com/api/v1/nutridigm/topitemstoavoid?subscriptionId=test&problemId=" + concern["problemID"].to_s)
+    puts avoidStringArray
+    avoidString = JSON.parse(avoidStringArray)
+    concern = Concern.create(problem: concern["hcText"], problemID: concern["problemID"], avoid: avoidString, consume: consumeString )
   end
 
   

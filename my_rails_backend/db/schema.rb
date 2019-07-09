@@ -18,31 +18,13 @@ ActiveRecord::Schema.define(version: 2019_07_07_160841) do
   create_table "concerns", force: :cascade do |t|
     t.text "problem"
     t.integer "problemID"
+    t.string "avoid"
+    t.string "consume"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "remedies", force: :cascade do |t|
-    t.text "remedy"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "remedy_concerns", force: :cascade do |t|
-    t.bigint "remedy_id"
-    t.bigint "concern_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["concern_id"], name: "index_remedy_concerns_on_concern_id"
-    t.index ["remedy_id"], name: "index_remedy_concerns_on_remedy_id"
-  end
-<<<<<<< HEAD
-ç
-  create_table "user_concern_tables", force: :cascade do |t|
-=======
 
   create_table "user_concerns", force: :cascade do |t|
->>>>>>> cfc1a6327840088b67c26dbd246a61d63ee20ce3
     t.bigint "user_id"
     t.bigint "concern_id"
     t.datetime "created_at", null: false
@@ -63,8 +45,6 @@ ActiveRecord::Schema.define(version: 2019_07_07_160841) do
     t.text "goals", default: [], array: true
   end
 
-  add_foreign_key "remedy_concerns", "concerns"
-  add_foreign_key "remedy_concerns", "remedies"
   add_foreign_key "user_concerns", "concerns"
   add_foreign_key "user_concerns", "users"
 end
