@@ -4,6 +4,5 @@ class AddColumnsToUsers < ActiveRecord::Migration[5.2]
     add_column :users, :weight, :integer
     add_column :users, :height, :integer
     add_column :users, :age, :integer
-    add_column :users, :goals, :text, array: true, default: []
   end
 end
