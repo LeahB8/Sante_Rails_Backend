@@ -15,9 +15,11 @@ class GoalsController < ApplicationController
 
   # POST /goals
   def create
+    # byebug
     @goal = Goal.new(goal_params)
 
     if @goal.save
+      @goal.save
       render json: @goal, status: :created, location: @goal
     else
       render json: @goal.errors, status: :unprocessable_entity
@@ -36,6 +38,7 @@ class GoalsController < ApplicationController
   # DELETE /goals/1
   def destroy
     @goal.destroy
+
   end
 
   private

@@ -12,7 +12,8 @@ Rails.application.routes.draw do
     post '/users/:id/concerns', to: 'user_concerns#create'
     delete '/users/:id/concerns/:id', to: 'user_concerns#destroy'
     get '/users/:id/concerns/:id', to: 'user_concerns#show'
-  # resources :user_concerns, only: [:index, :create]
+    get '/users/:id/goals', to: 'users#goals'
+    # resources :user_concerns, only: [:index, :create]
   resources :concerns, only: [:index]
   resources :users
   resources :goals
