@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2019_07_09_201233) do
     t.integer "weight"
     t.integer "height"
     t.integer "age"
+    t.text "goals", default: [], array: true
     t.string "image_url"
   end
 
